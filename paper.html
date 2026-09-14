@@ -1,1 +1,43 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Four levers on AI rack heat</title><style>body{font-family:Georgia,serif;max-width:42rem;margin:2rem auto;padding:0 1.2rem;line-height:1.55}h1,h2{font-family:system-ui,sans-serif}.call{background:#f4f1ea;padding:1rem;border-radius:8px}.donate{background:#111;color:#fff;padding:1rem;border-radius:8px}.donate a{color:#fff}table{border-collapse:collapse;width:100%}td,th{border-bottom:1px solid #ddd;padding:.4rem;text-align:left}</style></head><body><p>Slid Phi Labs · Corey Tasz · Cherry Hill · 14 Sep 2026</p><h1>Four levers on AI rack heat — a lab note, not a patent claim</h1><p>Planning envelope from the v3 dossier: on the order of 100 kW → ~18.75 kW if all four levers move. Not a measured rack.</p><div class="call"><strong>IP.</strong> Voltage scaling, CPO, 48 V, and adiabatic CMOS (ECRL, PFAL, S2LAL) are published techniques. This is a synthesis. Copyright the prose. Do not patent the list. License products, not Maxwell.</div><h2>Levers</h2><table><tr><th>Lever</th><th>Move</th></tr><tr><td>Voltage scaling</td><td>~0.8 V → ~0.4 V where timing still closes</td></tr><tr><td>Co-packaged optics</td><td>~22 dB class → ~4 dB class path</td></tr><tr><td>48 V distribution</td><td>less current, less I^2R</td></tr><tr><td>Adiabatic control-plane CMOS</td><td>recover 1/2 CV^2; not the GEMM</td></tr></table><h2>Adiabatic</h2><p>Slow recoverable clocks return gate charge instead of dumping it. Benefits: less switching heat on those gates. Costs: time, clock loss, leakage. Control plane only.</p><div class="donate"><p>Donate: <a href="https://www.slidphilabs.com/">slidphilabs.com</a></p></div><p>CC BY 4.0. No warranty.</p></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Four levers on AI rack heat — Slid Phi Labs</title>
+  <style>
+    body{font-family:Georgia,serif;max-width:42rem;margin:2rem auto;padding:0 1.2rem;line-height:1.55;color:#111}
+    h1,h2{font-family:system-ui,sans-serif}
+    .call{background:#f4f1ea;padding:1rem;border-radius:8px;margin:1.2rem 0}
+    .donate{background:#111;color:#fff;padding:1rem 1.2rem;border-radius:8px}
+    .donate a{color:#fff}
+    table{border-collapse:collapse;width:100%;font-size:.95rem}
+    td,th{border-bottom:1px solid #ddd;padding:.4rem;text-align:left;vertical-align:top}
+    footer{color:#555;font-size:.9rem;margin:2rem 0}
+  </style>
+</head>
+<body>
+<p>Slid Phi Labs · Corey Tasz · Cherry Hill, NJ · 14 Sep 2026</p>
+<h1>Four levers on AI rack heat — a lab note, not a patent claim</h1>
+<p>Planning envelope from the v3 dossier: on the order of <strong>100 kW → ~18.75 kW</strong> if all four levers move. That is not a measured rack.</p>
+<p><strong>Missing any lever → do not quote 18.75 kW.</strong> Recompute.</p>
+<div class="call"><strong>IP.</strong> Voltage scaling, co-packaged optics, 48 V distribution, and adiabatic CMOS families (ECRL, PFAL, S2LAL) are published techniques. This note is a synthesis. Copyright the prose. Do not patent the list. License products, not Maxwell’s equations.</div>
+<h2>Levers</h2>
+<table>
+<tr><th>Lever</th><th>Move</th><th>Why heat falls</th></tr>
+<tr><td>Voltage scaling</td><td>~0.8 V → ~0.4 V where timing still closes</td><td>Dynamic power tracks CV^{2}f. Halve V, quarter that term. Leakage and frequency fight you.</td></tr>
+<tr><td>Co-packaged optics</td><td>~22 dB class path → ~4 dB class path</td><td>Less electrical I/O swing and fewer retimers. Loss leaves the faceplate, not as extra PHYs.</td></tr>
+<tr><td>48 V distribution</td><td>rack/board bus at 48 V</td><td>Same watts at higher V is less current, less I^{2}R in copper.</td></tr>
+<tr><td>Adiabatic control-plane CMOS</td><td>ECRL / PFAL / S2LAL-style recovery</td><td>Slow recoverable clocks return ½CV^{2} instead of dumping it. Not the GEMM.</td></tr>
+</table>
+<h2>Adiabatic</h2>
+<p>Ordinary CMOS charges a node and throws the charge away. Adiabatic style ramps a recoverable clock slowly versus RC so most of that energy can return to the rail. Benefits: less switching heat on the gates you actually build this way. Costs: time, clock-generator loss, leakage, incomplete recovery. Control plane only.</p>
+<h2>Public references (indicative)</h2>
+<p>Adiabatic / charge-recovery CMOS: Athas et al.; Moon and Yoon on ECRL; PFAL variants; S2LAL stepwise families. 48 V rack distribution: Open Compute and vendor 48 V bus work. Co-packaged optics: industry CPO roadmaps. Voltage scaling: textbook CMOS. This note is a map, not a substitute for those papers.</p>
+<div class="donate">
+<p><strong>Support the lab.</strong> Slid Phi Labs, Cherry Hill.</p>
+<p>Donate: <a href="https://www.slidphilabs.com/">slidphilabs.com</a><br>
+Contact: <a href="mailto:corey@slidphilabs.com">corey@slidphilabs.com</a></p>
+</div>
+<footer>CC BY 4.0 on this prose. No warranty. No claim that any lever is exclusive to the lab.</footer>
+</body>
+</html>
