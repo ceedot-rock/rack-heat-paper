@@ -1,7 +1,7 @@
 # rack-heat-note — lab note (merged 2026-09-21)
 
 Lab notes folded in from the archived private repo `ceedot-rock/rack-heat-note`.
-Standalone folds and the paper itself stayed in the original repos where noted.
+Everything referenced below lives in this repo.
 
 # LAB20 #6 — Video CDN originals
 
@@ -112,7 +112,7 @@ PASS → cuni CI bank paste + lab-agent tests/test_lab20.py.
 
 Rule: paste N get X or refuse.
 Live: cuni-bank-0.1.0 · POST /v1/translate
-119 = check after ingest, not 119 parsers.
+144 = check after ingest, not 144 parsers.
 
 ## Fold
 
@@ -157,7 +157,7 @@ Stripe dashboard. New token. Charging before a failed exactness (you can still c
 
 ## Status
 
-Meter **ON** Fly (`LAB_REQUIRE_PAY=1`). GET /healthz and `/.well-known/ai-products.json` stay free. POST /v1/check|translate|squeeze without `Payment-Signature` or `X-PAYMENT` → **402**.
+Meter default **OFF** (`LAB_REQUIRE_PAY=0`) until a test payment returns 200 + receipt. Briefly ON during a Fly test (`LAB_REQUIRE_PAY=1`: GET /healthz and `/.well-known/ai-products.json` stayed free; POST /v1/check|translate|squeeze without `Payment-Signature` or `X-PAYMENT` → **402**).
 
 ## Fold
 

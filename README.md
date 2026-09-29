@@ -4,4 +4,4 @@ Public paper: [paper.html](paper.html)
 
 Known physics, planning envelope, donate link. Not a patent claim. Not a lab roadmap.
 
-Donate: https://www.slidphilabs.com/
+Donate: https://www.slidphilabs.com/pay?sku=donate
